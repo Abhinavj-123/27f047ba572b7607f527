@@ -28,14 +28,18 @@ const Detail: React.FC<Props> = (props) => {
       .getJSON(url.replace(/ /g, "%20"))
       .then((response) => {
         setHideProgress(true);
-        if(response.data.error){
-          if(response.data.error.code==105){
-            alert(response.data.error.info)
+        if (response.data.error) {
+          if (response.data.error.code == 105) {
+            alert(response.data.error.info);
           }
-        }
-        else{
+        } else {
           //Not Able to proceed to show the below data on a new page due to HTTP issue as in standard plan on http://api.weatherstack.com/, only http request
-          console.log(response.data.current.temperature,response.data.current.weather_icons[0],response.data.current.wind_speed,response.data.current.precip)
+          console.log(
+            response.data.current.temperature,
+            response.data.current.weather_icons[0],
+            response.data.current.wind_speed,
+            response.data.current.precip
+          );
         }
         console.log(response.data);
       })
